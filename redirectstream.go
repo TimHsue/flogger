@@ -7,7 +7,7 @@ import "syscall"
 // Redirects file descriptor to log file.
 // Example: flogger.RedirectStream(flogger.STDERR)
 func (f *Flogger) RedirectStream(fd int) (error) {
-    err := syscall.Dup3(int(f.fd.Fd()), fd)
+    err := syscall.Dup3(int(f.fd.Fd()), fd, 0)
     return err
 }
 
